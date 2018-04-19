@@ -16,6 +16,10 @@ pipeline {
     stage('Test') {
       steps {
         sh 'mvn  test'
+      }
+    }
+    stage('Analyze') {
+      steps {
         def scannerHome = tool 'sonarqube scanner'
         withSonarQubEnv('sonarqube') {
           sh "/jenkins/sonar-scanner/bin/sonar-scanner"
