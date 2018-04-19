@@ -3,7 +3,6 @@ pipeline {
     node {
       label 'SL6'
     }
-
   }
   stages {
     stage('Initialize') {
@@ -25,7 +24,7 @@ pipeline {
         }
       }
     }
-  }
+  
   tools {
     maven 'ACS Maven'
     jdk 'jdk8_161'
