@@ -8,8 +8,6 @@ pipeline {
     stage('Initialize') {
       steps {
         echo 'Init....'
-        sh 'echo "PATH = ${PATH}"'
-        sh 'echo "M2_HOME = ${M2_HOME}"'
       }
     }
     stage('Test') {
@@ -24,7 +22,7 @@ pipeline {
         }
       }
     }
-  
+
   tools {
     maven 'ACS Maven'
     jdk 'jdk8_161'
