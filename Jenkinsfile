@@ -15,14 +15,13 @@ pipeline {
     }
     stage('Test') {
       steps {
+        echo 'Running Tests (maven)'
         sh 'mvn  test'
       }
     }
     stage('Analyze') {
       steps {
-        def scannerHome = tool 'sonarqube scanner'
-        withSonarQubEnv('sonarqube') {
-          sh "/jenkins/sonar-scanner/bin/sonar-scanner"
+        echo 'Running Code Analysis (sonarqube)'
         }
       }
     }
