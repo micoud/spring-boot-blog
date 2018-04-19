@@ -9,14 +9,13 @@ pipeline {
     stage('Initialize') {
       steps {
         echo 'Init....'
-        sh '''
-                  echo "PATH = ${PATH}"'''
+        sh 'echo "PATH = ${PATH}"'
         sh 'echo "M2_HOME = ${M2_HOME}"'
       }
     }
     stage('Test') {
       steps {
-        sh 'mvn -X test'
+        sh 'mvn  test'
       }
     }
   }
