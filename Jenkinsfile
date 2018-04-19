@@ -10,8 +10,8 @@ pipeline {
       steps {
         echo 'Init....'
         sh '''
-                  echo "M2_HOME = /jenkins/.m2"
-               '''
+                  echo "PATH = ${PATH}"'''
+        sh 'echo "M2_HOME = ${M2_HOME}"'
       }
     }
     stage('Test') {
