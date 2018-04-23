@@ -19,9 +19,15 @@ pipeline {
     stage('Analyze') {
       steps {
         echo 'Running Code Analysis (sonarqube)'
+        sh 'sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES}'
         }
       }
     }
+
+  environment {
+    SONAR_PROJECT_KEY = "TEST spring-boot-blog"
+    SONAR_SOURCES = "./src"
+  }
 
   tools {
     maven 'ACS Maven'
