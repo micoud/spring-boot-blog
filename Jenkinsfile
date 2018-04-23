@@ -3,6 +3,7 @@ pipeline {
     node {
       label 'SL6'
     }
+
   }
   stages {
     stage('Initialize') {
@@ -20,17 +21,15 @@ pipeline {
       steps {
         echo 'Running Code Analysis (sonarqube)'
         sh 'sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES}'
-        }
       }
     }
-
-  environment {
-    SONAR_PROJECT_KEY = "TEST spring-boot-blog"
-    SONAR_SOURCES = "./src"
   }
-
   tools {
     maven 'ACS Maven'
     jdk 'jdk8_161'
+  }
+  environment {
+    SONAR_PROJECT_KEY = 'TEST-spring-boot-blog'
+    SONAR_SOURCES = './src'
   }
 }
