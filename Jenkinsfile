@@ -44,6 +44,6 @@ pipeline {
   }
   environment {
     SONAR_PROJECT_KEY = 'TEST-spring-boot-blog'
-    SONAR_JAVA_BINARIES = '.'
+    SONAR_JAVA_BINARIES = './target'
   }
 }
