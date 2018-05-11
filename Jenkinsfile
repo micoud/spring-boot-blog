@@ -11,7 +11,7 @@ pipeline {
         echo 'Init....'
       }
     }
-    stage('Test') {
+    stage('Test/Build') {
       parallel {
         stage('Backend Test') {
           steps {
@@ -23,6 +23,11 @@ pipeline {
           steps {
             sh '''echo "Frontend test"
 '''
+          }
+        }
+        stage('Build') {
+          steps {
+            sh 'mvn compile'
           }
         }
       }
