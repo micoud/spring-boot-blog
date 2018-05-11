@@ -11,9 +11,9 @@ pipeline {
         echo 'Init....'
       }
     }
-    stage('Backend Test') {
+    stage('Test') {
       parallel {
-        stage('Test') {
+        stage('Backend Test') {
           steps {
             echo 'Running Tests (maven)'
             sh 'mvn  test'
