@@ -26,7 +26,6 @@ pipeline {
   }
   tools {
     maven 'ACS Maven'
-    jdk 'jdk8_161'
   }
   environment {
     SONAR_PROJECT_KEY = 'TEST-spring-boot-blog'
