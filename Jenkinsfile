@@ -35,7 +35,7 @@ pipeline {
     stage('Analyze') {
       steps {
         echo 'Running Code Analysis (sonarqube)'
-        sh 'sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES}'
+        sh 'sonar-scanner -Dsonar.projectKey=${SONAR_PROJECT_KEY} -Dsonar.sources=${SONAR_SOURCES} -Dsonar.java.binaries=${SONAR_JAVA_BINARIES}'
       }
     }
   }
@@ -45,5 +45,6 @@ pipeline {
   environment {
     SONAR_PROJECT_KEY = 'TEST-spring-boot-blog'
     SONAR_SOURCES = '.'
+    SONAR_JAVA_BINARIES = './target'
   }
 }
