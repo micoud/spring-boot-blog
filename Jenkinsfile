@@ -11,10 +11,20 @@ pipeline {
         echo 'Init....'
       }
     }
-    stage('Test') {
-      steps {
-        echo 'Running Tests (maven)'
-        sh 'mvn  test'
+    stage('Backend Test') {
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Running Tests (maven)'
+            sh 'mvn  test'
+          }
+        }
+        stage('Frontend Test') {
+          steps {
+            sh '''echo "Frontend test"
+'''
+          }
+        }
       }
     }
     stage('Analyze') {
